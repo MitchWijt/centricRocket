@@ -1,4 +1,4 @@
-public abstract class Planet {
+public class Planet {
     private final String name;
     private final int distanceFromEarth;
     private final boolean canRepairShip;
