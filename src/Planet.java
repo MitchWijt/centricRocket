@@ -2,7 +2,7 @@ public class Planet {
     private final String name;
     private final int distanceFromEarth;
     private final boolean canRepairShip;
-    private final int availableFuel;
+    private int availableFuel;
 
     public Planet(String name, int distanceFromEarth, boolean canRepairShip, int availableFuel) {
         this.name = name;
@@ -27,21 +27,25 @@ public class Planet {
         return this.availableFuel;
     }
 
-    public void repairShip(SpaceShip spaceShip) {
-        if(!this.canRepairShip) {
-            System.out.println("Ship cannot be repaired on this planet");
+    public void refillSpaceship(SpaceShip spaceShip) {
+        int fuelToTank = 100 - spaceShip.getFuel();
+
+        if(this.availableFuel - fuelToTank < 0) {
+            System.out.println("Gas cannot be filled here");
             return;
         }
 
-        spaceShip.refillHealth();
-        System.out.println("Ship has been repaired");
+        this.availableFuel -= fuelToTank;
+        spaceShip.addFuel(fuelToTank);
     }
 
-    public void refillShip(SpaceShip spaceShip) {
-        if(this.availableFuel <= 0) {
-            System.out.println("Gas station is out of fuel");
-            return;
-        }
-        spaceShip.refuel(this.availableFuel);
-    }
+//    public void repairShip(SpaceShip spaceShip) {
+//        if(!this.canRepairShip) {
+//            System.out.println("Ship cannot be repaired on this planet");
+//            return;
+//        }
+//
+//        spaceShip.refillHealth();
+//        System.out.println("Ship has been repaired");
+//    }
 }

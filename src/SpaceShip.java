@@ -1,8 +1,8 @@
 public class SpaceShip {
     private final String name;
-    protected int health;
-    protected int fuel;
-    private Navigation navigation;
+    private int health;
+    private int fuel;
+    private final Navigation navigation;
 
     public SpaceShip(String name) {
         this.name = name;
@@ -19,29 +19,31 @@ public class SpaceShip {
         return this.navigation;
     }
 
-    public void getShipStats() {
-        System.out.printf("Ship health: %d\nShip fuel: %d\n", this.health, this.fuel);
+    public int getFuel() {
+        return this.fuel;
     }
 
-    public int getRemainingFuel() {
-        return this.fuel;
+    public int getHealth() {
+        return this.health;
+    }
+
+    public void getShipStats() {
+        System.out.printf("Ship health: %d\nShip fuel: %d\n", this.health, this.fuel);
     }
 
     public void refillHealth() {
         this.health = 100;
     }
 
-    public void refuel(int fuel) {
+    public void addFuel(int fuel) {
         this.fuel += fuel;
     }
 
-    public void reduceFuel(int fuelCost) {
-        this.fuel -= fuelCost;
-    }
-
     public void flyToPlanet(Planet planet) {
-        int fuelCost = planet.getDistanceFromEarth() * 2;
-        reduceFuel(fuelCost);
+        int fuelCost = planet.getDistanceFromEarth() / 10;
+        this.fuel -= fuelCost;
+
+        this.navigation.updateTravelLog("Flown to " + planet.getName() + "\n");
         System.out.printf("Flying to planet %s\n", planet.getName());
     }
 }
