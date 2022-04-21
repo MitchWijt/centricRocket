@@ -39,6 +39,10 @@ public class SpaceShip {
         this.fuel += fuel;
     }
 
+    public void removeHealth(int health) {
+        this.health -= health;
+    }
+
     public void flyToPlanet(Planet planet) {
         int fuelCost = planet.getDistanceFromEarth() / 10;
         this.fuel -= fuelCost;
