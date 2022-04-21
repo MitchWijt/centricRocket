@@ -19,6 +19,14 @@ public class Planet {
         return this.distanceFromEarth;
     }
 
+    public boolean getCanRepairShip() {
+        return this.canRepairShip;
+    }
+
+    public int getAvailableFuel() {
+        return this.availableFuel;
+    }
+
     public void repairShip(SpaceShip spaceShip) {
         if(!this.canRepairShip) {
             System.out.println("Ship cannot be repaired on this planet");
