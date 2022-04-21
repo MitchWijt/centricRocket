@@ -68,6 +68,8 @@ public class Game {
             System.out.println("Pshhhhhhh.....");
             wait(5000);
 
+            checkForMeteor();
+
             this.spaceShip.getShipStats();
             wait(2000);
 
@@ -90,6 +92,17 @@ public class Game {
             if(chosenInput.equals("n")) {
                 stopGame();
             }
+        }
+    }
+
+    public void checkForMeteor() {
+        double randomNumber = Math.round(Math.random() * 9 + 1);
+        if(randomNumber % 2 == 1) {
+            int damage = (int)randomNumber * 2;
+            System.out.printf("Whoooosh, a meteor has hit your spaceship..., you got %d damage\n", damage);
+            wait(2000);
+
+            this.spaceShip.removeHealth(damage);
         }
     }
 
