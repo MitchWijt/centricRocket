@@ -1,23 +1,21 @@
 import java.util.ArrayList;
 
 public class Navigation {
-    private int distanceTravelled;
     private ArrayList<String> travelLog;
 
-    public int getDistanceTravelled() {
-        return this.distanceTravelled;
+    public Navigation() {
+        this.travelLog = new ArrayList<>();
     }
 
-    public ArrayList<String> getTravelLog() {
-        return this.travelLog;
+
+    public void getTravelLog() {
+        for(String log : travelLog) {
+            System.out.println(log);
+        }
     }
 
     public void updateTravelLog(String route) {
         this.travelLog.add(route);
-    }
-
-    public void updateDistanceTravelled(int distance) {
-        this.distanceTravelled += distance;
     }
 
     public void printAvailableDestinations(ArrayList<Planet> planets) {
