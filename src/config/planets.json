@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Jupiter",
+    "distanceFromEarth": 20,
+    "canRepairShip": false,
+    "availableFuel": 20
+  },
+  {
+    "name": "Neptune",
+    "distanceFromEarth": 50,
+    "canRepairShip": true,
+    "availableFuel": 0
+  },
+  {
+    "name": "Saturn",
+    "distanceFromEarth": 120,
+    "canRepairShip": true,
+    "availableFuel": 50
+  },
+  {
+    "name": "Uranus",
+    "distanceFromEarth": 160,
+    "canRepairShip": false,
+    "availableFuel": 100
+  }
+]

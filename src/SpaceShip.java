@@ -1,4 +1,4 @@
-public abstract class SpaceShip {
+public class SpaceShip {
     private final String name;
     protected int health;
     protected int fuel;
@@ -19,6 +19,10 @@ public abstract class SpaceShip {
         return this.distanceTravelled;
     }
 
+    public void updateDistanceTravelled(int distance) {
+        this.distanceTravelled += distance;
+    }
+
     public void refillHealth() {
         this.health = 100;
     }
@@ -27,6 +31,11 @@ public abstract class SpaceShip {
         this.fuel += fuel;
     }
 
-    public abstract int getRemainingFuel();
-    public abstract void flyToPlanet(Planet planet);
+    public int getRemainingFuel() {
+        return this.fuel;
+    }
+
+    public void flyToPlanet(Planet planet) {
+        System.out.println("Flying to a new planet");
+    }
 }
